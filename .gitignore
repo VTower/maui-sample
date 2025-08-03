@@ -1,0 +1,52 @@
+## Compiled binaries
+bin/
+obj/
+
+# User-specific files
+# *.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Build results
+*.exe
+*.dll
+*.app
+*.msi
+*.apk
+*.aab
+*.appx
+*.appxbundle
+*.msix
+*.msixbundle
+
+# MAUI specific
+**/Platforms/**/bin/
+**/Platforms/**/obj/
+**/Platforms/Android/*.keystore
+**/Platforms/iOS/*.mobileprovision
+# **/Platforms/iOS/*.plist
+**/Platforms/iOS/Entitlements.plist
+
+# Windows specific
+**/Platforms/Windows/AppPackages/
+**/Platforms/Windows/BundleArtifacts/
+**/Platforms/Windows/bin/
+**/Platforms/Windows/obj/
+
+# Local settings
+*.swp
+*.bak
+*.orig
+*.log
+
+# JetBrains Rider
+.idea/
+
+# Mac
+*.DS_Store
