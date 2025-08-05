@@ -17,7 +17,7 @@ public static class RandomCustomersMock
     {
         FirstName = "FirstNameTest02",
         LastName = "LastNameTest02",
-        Age = 37,
+        Age = 22,
         Address = "Rud Exemplo, 123 Bairro 02"
     };
 
@@ -25,7 +25,7 @@ public static class RandomCustomersMock
     {
         FirstName = "FirstNameTest03",
         LastName = "LastNameTest03",
-        Age = 37,
+        Age = 42,
         Address = "Rud Exemplo, 123 Bairro 03"
     };
 }
