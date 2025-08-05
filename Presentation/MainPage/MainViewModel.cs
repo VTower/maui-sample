@@ -1,6 +1,7 @@
 using maui_sample.Data;
 using maui_sample.Models;
 using System.Windows.Input;
+using maui_sample.Tests.Mocks;
 using CommunityToolkit.Maui.Views;
 using maui_sample.Services.Dialog;
 using System.Collections.ObjectModel;
@@ -35,14 +36,15 @@ public partial class MainViewModel : ObservableObject
 
     private async void Setup()
     {
-        // TODO: Change To mock Data
-        await _database.InserirCustomerAsync(new Customer
+        // My first time using Preferences.. Lets Try!
+        if (Preferences.Get("FirstRun", true))
         {
-            FirstName = "FirstNameTest",
-            LastName = "LastNameTest",
-            Age = 37,
-            Address = "Rud Exemplo, 123"
-        });
+            Preferences.Set("FirstRun", false);
+
+            await _database.InserirCustomerAsync(RandomCustomersMock.Customer01);
+            await _database.InserirCustomerAsync(RandomCustomersMock.Customer02);
+            await _database.InserirCustomerAsync(RandomCustomersMock.Customer03);
+        }
 
         await LoadCustomersAsync();
     }
