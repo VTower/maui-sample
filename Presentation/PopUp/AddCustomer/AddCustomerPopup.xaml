@@ -43,7 +43,6 @@
                                    Text="{Binding Age}"/>
                             <Entry x:Name="entryEndereco"
                                    TextColor="#04172f"
-                                   TextChanged="OnlyLetters"
                                    Placeholder="Endereço"
                                    Text="{Binding Address}"/>
                             <HorizontalStackLayout
