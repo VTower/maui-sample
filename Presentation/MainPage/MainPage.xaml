@@ -71,7 +71,7 @@
                             <Button Text="Incluir Cliente"
                                     VerticalOptions="Center"
                                     HorizontalOptions="Center"
-                                    Command="{Binding OpenPopUpCommand}" 
+                                    Command="{Binding NewCustomerCommand}" 
                                     HeightRequest="48"
                                     BackgroundColor="#04172f"
                                     WidthRequest="120"
@@ -139,7 +139,7 @@
                     </Grid>
                 </Border>
                 <!-- Lista de itens -->
-                <CollectionView ItemsSource="{Binding Clients}"
+                <CollectionView ItemsSource="{Binding Customers}"
                                 SelectionMode="None">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
@@ -162,24 +162,24 @@
                                         <ColumnDefinition Width="28"/>
                                     </Grid.ColumnDefinitions>
                                     <!-- Nome -->
-                                    <Label Text="{Binding FirstName}"
+                                    <Label Text="{Binding FirstName, Mode=TwoWay}"
                                            TextColor="#0f2138"
                                            VerticalTextAlignment="Center"
                                            HorizontalTextAlignment="Center"/>
                                     <!-- Sobrenome -->
-                                    <Label Text="{Binding LastName}"
+                                    <Label Text="{Binding LastName, Mode=TwoWay}"
                                            Grid.Column="1"
                                            TextColor="#0f2138"
                                            VerticalTextAlignment="Center"
                                            HorizontalTextAlignment="Center"/>
                                     <!-- Idade -->
-                                    <Label Text="{Binding Age}"
+                                    <Label Text="{Binding Age, Mode=TwoWay}"
                                            Grid.Column="2"
                                            TextColor="#0f2138"
                                            VerticalTextAlignment="Center"
                                            HorizontalTextAlignment="Center"/>
                                     <!-- Endereço -->
-                                    <Label Text="{Binding Address}"
+                                    <Label Text="{Binding Address, Mode=TwoWay}"
                                            Grid.Column="3"
                                            TextColor="#0f2138"
                                            VerticalTextAlignment="Center"
