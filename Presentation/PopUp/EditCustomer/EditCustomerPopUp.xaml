@@ -40,7 +40,7 @@
                        TextColor="#04172f"
                        Placeholder="Idade"
                        Keyboard="Numeric"
-                       Text="{Binding IdadeTexto}"
+                       Text="{Binding Age}"
                        TextChanged="OnlyNumbers"
                        />
                 <Entry x:Name="entryEndereco"
