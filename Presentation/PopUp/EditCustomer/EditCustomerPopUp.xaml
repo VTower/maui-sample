@@ -1,0 +1,87 @@
+<toolkit:Popup
+    x:Class="maui_sample.Presentation.PopUp.EditCustomerPopUp"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Color="Transparent">
+    <Border
+        Padding="18,20,22,20"
+        Stroke="#43A3A1A1"
+        StrokeThickness="0.6"
+        StrokeShape="RoundRectangle 4"
+        WidthRequest="458"
+        HeightRequest="538"
+        BackgroundColor="White">
+        <ScrollView>
+            <VerticalStackLayout VerticalOptions="Center"
+                                 HorizontalOptions="Fill"
+                                 Spacing="32">
+                <VerticalStackLayout Spacing="2">
+                    <Label Text="Editar Cliente"
+                           FontSize="18"
+                           TextColor="#04172f"
+                           FontAttributes="Bold"/>
+                    <Label Text="Atualize as informações do cliente abaixo."
+                           TextColor="#65758b"/>
+                </VerticalStackLayout>
+                <Entry x:Name="entryNome"
+                       TextColor="#04172f"
+                       Placeholder="Nome"
+                       Text="{Binding FirstName}"
+                       TextChanged="OnlyLetters"
+                       />
+                <Entry x:Name="entrySobrenome"
+                       TextColor="#04172f"
+                       Placeholder="Sobrenome"
+                       Text="{Binding LastName}"
+                       TextChanged="OnlyLetters"
+                       />
+                <Entry x:Name="entryIdade"
+                       TextColor="#04172f"
+                       Placeholder="Idade"
+                       Keyboard="Numeric"
+                       Text="{Binding IdadeTexto}"
+                       TextChanged="OnlyNumbers"
+                       />
+                <Entry x:Name="entryEndereco"
+                       TextColor="#04172f"
+                       Placeholder="Endereço"
+                       Text="{Binding Address}"
+                       TextChanged="OnlyLetters"
+                       />
+                <HorizontalStackLayout
+                    Margin="0,14,0,0"
+                    VerticalOptions="Center"
+                    HorizontalOptions="End"
+                    Spacing="16">
+                    <Border StrokeShape="Rectangle"
+                            StrokeThickness="0.8"
+                            Stroke="Black">
+                        <Button Text="Cancelar"
+                                TextColor="#04172f"
+                                BackgroundColor="White"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center"
+                                CornerRadius="0"
+                                WidthRequest="120"
+                                HeightRequest="56"
+                                Command="{Binding CloseCommand}"/>
+                    </Border>
+                    <Border StrokeThickness="0.8"
+                            Stroke="#C4032248"
+                            StrokeShape="Rectangle">
+                        <Button Text="Salvar"
+                                BackgroundColor="#04172f"
+                                TextColor="White"
+                                WidthRequest="120"
+                                CornerRadius="0"
+                                HeightRequest="56"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center"
+                                Command="{Binding SaveCommand}"/>
+                    </Border>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Border>
+</toolkit:Popup>
