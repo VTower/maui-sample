@@ -47,7 +47,6 @@
                        TextColor="#04172f"
                        Placeholder="Endereço"
                        Text="{Binding Address}"
-                       TextChanged="OnlyLetters"
                        />
                 <HorizontalStackLayout
                     Margin="0,14,0,0"
