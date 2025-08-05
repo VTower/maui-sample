@@ -8,8 +8,13 @@ public static class MauiProgram
 {
 	public static MauiApp CreateMauiApp()
 	{
-		var builder = MauiApp.CreateBuilder();
+		MauiAppBuilder? builder = MauiApp.CreateBuilder();
+
 		builder.UseMauiApp<App>()
+			   // That configuration is more normaly
+			   .StartAppFullSize()
+			   // But, this setup is more cool. Like game mode.
+			   //.StartAppFullScreen()
 			   .ConfigureFonts(fonts =>
 				{
 					fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -24,6 +29,7 @@ public static class MauiProgram
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
+
 		return builder.Build();
 	}
 }
