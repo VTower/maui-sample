@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="maui_sample.MainPage"
-             BackgroundColor="#DFFCFCFC">
+             BackgroundColor="#FFDEE0E4">
     <Grid RowSpacing="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -34,9 +34,181 @@
                        TextColor="#EBFFFFFF"/>
             </VerticalStackLayout>
         </Grid>
-
-        <!-- === Content to develop === -->
-        <!-- <ScrollView Grid.Row="1">
-        </ScrollView> -->
+        <!-- === Content === -->
+        <ScrollView Grid.Row="1"
+                    Padding="48,42,48,80">
+            <VerticalStackLayout Padding="30,22,30,12"
+                                 BackgroundColor="White">
+                <!-- Conteudo Header da tabela -->
+                <Grid Grid.Column="4"
+                      Margin="0,0,0,16"
+                      ColumnDefinitions="*,Auto"
+                      MinimumHeightRequest="70"
+                      HorizontalOptions="Fill"
+                      VerticalOptions="Fill">
+                    <!-- Cadastro de Clientes -->
+                    <Label Grid.Column="0"
+                           Text="Cadastro de Clientes BTG Pactual"
+                           FontSize="28"
+                           FontAttributes="Bold"
+                           TextColor="#04172f"
+                           VerticalOptions="Center"/>
+                    <!-- Incluir Cliente -->
+                    <Border Grid.Column="1"
+                            StrokeThickness="0"
+                            Margin="0,0,12,0"
+                            Background="#04172f"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            StrokeShape="RoundRectangle 8">
+                        <HorizontalStackLayout>
+                            <Image Source="add_icon.png"
+                                   Margin="12,6,0,6"
+                                   MaximumHeightRequest="18"
+                                   MaximumWidthRequest="46"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"/>
+                            <Button Text="Incluir Cliente"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"
+                                    Command="{Binding OpenPopUpCommand}" 
+                                    HeightRequest="48"
+                                    BackgroundColor="#04172f"
+                                    WidthRequest="120"
+                                    TextColor="#f5f6f7"/>
+                        </HorizontalStackLayout>
+                    </Border>
+                </Grid>
+                <!-- Titulo da tabela -->
+                <Border StrokeThickness="0.6"
+                        StrokeShape="RoundRectangle 4"
+                        Stroke="#43A3A1A1">
+                    <Grid  BackgroundColor="#FFD3D6DA"
+                           MinimumHeightRequest="46">
+                        <Grid.ColumnDefinitions>
+                            <!-- Nome -->
+                            <ColumnDefinition Width="2*"/>
+                            <!-- Sobrenome -->
+                            <ColumnDefinition Width="2*"/>
+                            <!-- Idade -->
+                            <ColumnDefinition Width="1*"/>
+                            <!-- Endereço -->
+                            <ColumnDefinition Width="3*"/>
+                            <!-- Ações -->
+                            <ColumnDefinition Width="1*"/>
+                            <!-- Blank -->
+                            <ColumnDefinition Width="28"/>
+                        </Grid.ColumnDefinitions>
+                        <!-- Nome -->
+                        <Label Text="Nome"
+                               Grid.Column="0"
+                               FontAttributes="Bold"
+                               TextColor="#65758b"
+                               VerticalTextAlignment="Center"
+                               HorizontalTextAlignment="Center"/>
+                        <!-- Sobrenome -->
+                        <Label Text="Sobrenome"
+                               Grid.Column="1"
+                               FontAttributes="Bold"
+                               TextColor="#65758b"
+                               VerticalTextAlignment="Center"
+                               HorizontalTextAlignment="Center"/>
+                        <!-- Idade -->
+                        <Label Text="Idade"
+                               Grid.Column="2"
+                               FontAttributes="Bold"
+                               TextColor="#65758b"
+                               VerticalTextAlignment="Center"
+                               HorizontalTextAlignment="Center"/>
+                        <!-- Endereço -->
+                        <Label Text="Endereço"
+                               Grid.Column="3"
+                               FontAttributes="Bold"
+                               TextColor="#65758b"
+                               VerticalTextAlignment="Center"
+                               HorizontalTextAlignment="Center"/>
+                        <!-- Ações -->
+                        <Label Text="Ações"
+                               Grid.Column="4"
+                               FontAttributes="Bold"
+                               TextColor="#65758b"
+                               VerticalTextAlignment="Center"
+                               HorizontalTextAlignment="Center"/>
+                        <!-- Blank -->
+                        <Label Grid.Column="5"/>
+                    </Grid>
+                </Border>
+                <!-- Lista de itens -->
+                <CollectionView ItemsSource="{Binding Clients}"
+                                SelectionMode="None">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border StrokeThickness="0.2"
+                                    StrokeShape="RoundRectangle 4"
+                                    Stroke="#5C353434">
+                                <Grid Padding="0,8">
+                                    <Grid.ColumnDefinitions>
+                                        <!-- Nome -->
+                                        <ColumnDefinition Width="2*"/>
+                                        <!-- Sobrenome -->
+                                        <ColumnDefinition Width="2*"/>
+                                        <!-- Idade -->
+                                        <ColumnDefinition Width="1*"/>
+                                        <!-- Endereço -->
+                                        <ColumnDefinition Width="3*"/>
+                                        <!-- Ações -->
+                                        <ColumnDefinition Width="1*"/>
+                                        <!-- Blank -->
+                                        <ColumnDefinition Width="28"/>
+                                    </Grid.ColumnDefinitions>
+                                    <!-- Nome -->
+                                    <Label Text="{Binding FirstName}"
+                                           TextColor="#0f2138"
+                                           VerticalTextAlignment="Center"
+                                           HorizontalTextAlignment="Center"/>
+                                    <!-- Sobrenome -->
+                                    <Label Text="{Binding LastName}"
+                                           Grid.Column="1"
+                                           TextColor="#0f2138"
+                                           VerticalTextAlignment="Center"
+                                           HorizontalTextAlignment="Center"/>
+                                    <!-- Idade -->
+                                    <Label Text="{Binding Age}"
+                                           Grid.Column="2"
+                                           TextColor="#0f2138"
+                                           VerticalTextAlignment="Center"
+                                           HorizontalTextAlignment="Center"/>
+                                    <!-- Endereço -->
+                                    <Label Text="{Binding Address}"
+                                           Grid.Column="3"
+                                           TextColor="#0f2138"
+                                           VerticalTextAlignment="Center"
+                                           HorizontalTextAlignment="Center"/>
+                                    <!-- Ações -->
+                                    <HorizontalStackLayout Grid.Column="4"
+                                                           VerticalOptions="Center"
+                                                           HorizontalOptions="Center">
+                                        <ImageButton
+                                            Source="edit_icon.png"
+                                            HeightRequest="12"
+                                            WidthRequest="12"
+                                            Command="{Binding BindingContext.EditCommand, Source={RelativeSource AncestorType={x:Type Page}}}"
+                                            CommandParameter="{Binding .}"/>
+                                        <ImageButton
+                                            Source="trash_icon.png"
+                                            HeightRequest="12"
+                                            WidthRequest="12"
+                                            Command="{Binding BindingContext.DeleteCommand, Source={RelativeSource AncestorType={x:Type Page}}}"
+                                            CommandParameter="{Binding .}"/>
+                                    </HorizontalStackLayout>
+                                    <!-- Blank -->
+                                    <Label Grid.Column="5"/>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
     </Grid>
 </ContentPage>
