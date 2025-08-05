@@ -36,7 +36,7 @@ public partial class AddCustomerPopupViewModel : ObservableObject
     public ICommand CloseCommand { get; }
 
     // Handlers 
-    public event Action<Client>? OnSave;
+    public event Action<Customer>? OnSave;
     public event Action? OnCancel;
 
     public AddCustomerPopupViewModel()
@@ -50,7 +50,7 @@ public partial class AddCustomerPopupViewModel : ObservableObject
 
         SaveCommand = new Command(() =>
                {
-                   Client cliente = new()
+                   Customer cliente = new()
                    {
                        FirstName = FirstName,
                        LastName = LastName,

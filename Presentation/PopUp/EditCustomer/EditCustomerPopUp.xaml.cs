@@ -6,7 +6,7 @@ namespace maui_sample.Presentation.PopUp;
 
 public partial class EditCustomerPopUp : Popup
 {
-    public EditCustomerPopUp(Client client)
+    public EditCustomerPopUp(Customer client)
     {
         InitializeComponent();
 

@@ -57,10 +57,10 @@ public partial class EditCustomerPopUpViewModel : ObservableObject
     public ICommand CloseCommand { get; }
 
     // Handlers 
-    public event Action<Client>? OnSave;
+    public event Action<Customer>? OnSave;
     public event Action? OnCancel;
 
-    public EditCustomerPopUpViewModel(Client client)
+    public EditCustomerPopUpViewModel(Customer client)
     {
         _firstName = client.FirstName;
         _lastName = client.LastName;
@@ -79,7 +79,7 @@ public partial class EditCustomerPopUpViewModel : ObservableObject
 
         SaveCommand = new Command(() =>
                {
-                   Client cliente = new()
+                   Customer cliente = new()
                    {
                        FirstName = FirstName,
                        LastName = LastName,
