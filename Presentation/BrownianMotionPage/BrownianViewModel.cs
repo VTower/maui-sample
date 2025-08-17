@@ -39,6 +39,7 @@ public partial class BrownianViewModel : ObservableObject
 
         // TODO: Adicionar configuração pelo usuario
         Color? color = GetColorForIndex(BrownianDataList.Count);
+        // TODO: Adicionar no Gráfico o nome
         string? name = $"{BrownianDataList.Count} (μ={Mean:0.####}, σ={Sigma:0.####})";
 
         BrownianDataList.Add(new BrownianGraphData(name, color, prices));

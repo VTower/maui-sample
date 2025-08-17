@@ -149,6 +149,7 @@
                                                         HorizontalOptions="Fill"
                                                         HorizontalTextAlignment="Center"
                                                         VerticalOptions="Center"
+                                                        TextChanged="OnlyNumberAComma"
                                                         HeightRequest="40"/>
                                           </VerticalStackLayout>
                                           <!-- Volatilidade -->
@@ -162,6 +163,7 @@
                                                         Margin="0,6,0,10"
                                                         HorizontalOptions="Fill"
                                                         HorizontalTextAlignment="Center"
+                                                        TextChanged="OnlyNumberAComma"
                                                         VerticalOptions="Center"
                                                         HeightRequest="40"/>
                                           </VerticalStackLayout>
@@ -177,6 +179,7 @@
                                                         HorizontalOptions="Fill"
                                                         HorizontalTextAlignment="Center"
                                                         VerticalOptions="Center"
+                                                        TextChanged="OnlyNumberAComma"
                                                         HeightRequest="40"/>
                                           </VerticalStackLayout>
                                           <!-- Tempo -->
@@ -191,6 +194,7 @@
                                                         HorizontalOptions="Fill"
                                                         HorizontalTextAlignment="Center"
                                                         VerticalOptions="Center"
+                                                        TextChanged="OnlyNumbers"
                                                         HeightRequest="40"/>
                                           </VerticalStackLayout>
                                           <!-- BOT CONTEXT -->

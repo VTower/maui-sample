@@ -23,4 +23,34 @@ public partial class BrownianPage : ContentPage
         // First Graph
         vm.InitializeIfEmpty();
     }
+
+    private void OnlyNumberAComma(object sender, TextChangedEventArgs e)
+    {
+        if (string.IsNullOrEmpty(e.NewTextValue))
+            return;
+
+        string validText = new(e.NewTextValue
+            .Where(c => char.IsDigit(c) || c == ',')
+            .ToArray());
+
+        int firstComma = validText.IndexOf(',');
+        if (firstComma >= 0)
+        {
+            validText = validText.Substring(0, firstComma + 1) +
+                        validText.Substring(firstComma + 1).Replace(",", "");
+        }
+
+        if (validText != e.NewTextValue)
+            ((Entry)sender).Text = validText;
+    }
+
+    private void OnlyNumbers(object sender, TextChangedEventArgs e)
+    {
+        Entry entry = (Entry)sender;
+
+        string onlyCharNumbers = new(entry.Text?.Where(char.IsDigit).ToArray());
+
+        if (entry.Text != onlyCharNumbers)
+            entry.Text = onlyCharNumbers;
+    }
 }
