@@ -64,6 +64,7 @@
                      <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
                      </Grid.ColumnDefinitions>
                      <Image Grid.Column="0"
                             Source="header_icon.png"
@@ -80,6 +81,17 @@
                                    FontSize="14"
                                    TextColor="#EBFFFFFF"/>
                      </VerticalStackLayout>
+                     <!-- Botão no canto direito -->
+                     <Button Grid.Column="2"
+                             Command="{Binding NavigateToHomePageCommand}"
+                             ImageSource="user_list_icon.png"
+                             BackgroundColor="#FF132C52"
+                             HorizontalOptions="End"
+                             VerticalOptions="Center"
+                             Padding="12,10"
+                             Margin="0,0,28,0"
+                             CornerRadius="8"
+                             MaximumHeightRequest="34"/>
               </Grid>
               <!-- CONTEUDO BROWNIAN -->
               <ScrollView Grid.Row="1">

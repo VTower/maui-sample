@@ -60,6 +60,12 @@ public partial class BrownianViewModel : ObservableObject
         BrownianDataListUpdated?.Invoke(BrownianDataList);
     }
 
+    [RelayCommand]
+    private async Task NavigateToHomePage()
+    {
+        await Shell.Current.GoToAsync(nameof(MainViewModel));
+    }
+
     public void InitializeIfEmpty()
     {
         if (BrownianDataList.Count == 0)
