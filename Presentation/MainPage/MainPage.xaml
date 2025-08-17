@@ -17,7 +17,9 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
+            <!-- Ícone -->
             <Image Grid.Column="0"
                    Source="header_icon.png"
                    WidthRequest="40"
@@ -33,6 +35,17 @@
                        FontSize="14"
                        TextColor="#EBFFFFFF"/>
             </VerticalStackLayout>
+            <!-- Botão no canto direito -->
+            <Button Grid.Column="2"
+                    Command="{Binding NavigateToBrownianPage}"
+                    ImageSource="graph_icon.png"
+                    BackgroundColor="#FF132C52"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center"
+                    Padding="12,10"
+                    Margin="0,0,28,0"
+                    CornerRadius="8"
+                    MaximumHeightRequest="34"/>
         </Grid>
         <!-- === Content === -->
         <ScrollView Grid.Row="1"
@@ -71,7 +84,7 @@
                             <Button Text="Incluir Cliente"
                                     VerticalOptions="Center"
                                     HorizontalOptions="Center"
-                                    Command="{Binding NewCustomerCommand}" 
+                                    Command="{Binding NewCustomerCommand}"
                                     HeightRequest="48"
                                     BackgroundColor="#04172f"
                                     WidthRequest="120"

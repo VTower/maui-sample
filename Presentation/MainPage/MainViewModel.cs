@@ -18,6 +18,7 @@ public partial class MainViewModel : ObservableObject
     public ICommand EditCommand { get; }
     public ICommand DeleteCommand { get; }
     public ICommand NewCustomerCommand { get; }
+    public ICommand NavigateToBrownianPage { get; }
 
     private readonly IDialogService _dialog;
     private readonly IDatabaseService _database;
@@ -28,8 +29,9 @@ public partial class MainViewModel : ObservableObject
         _database = databaseService;
 
         NewCustomerCommand = new Command(async () => await NewCustomer());
-        DeleteCommand = new Command<Customer>(async (client) => await DeleteCustomer(client));
+        NavigateToBrownianPage = new Command(async () => await NavigateToBrownianAsync());
         EditCommand = new Command<Customer>(async (client) => await EditCustomer(client));
+        DeleteCommand = new Command<Customer>(async (client) => await DeleteCustomer(client));
 
         Setup();
     }
@@ -99,5 +101,10 @@ public partial class MainViewModel : ObservableObject
             await _database.InserirCustomerAsync(client);
             Customers.Add(client);
         }
+    }
+
+    private async Task NavigateToBrownianAsync()
+    {
+        await Shell.Current.GoToAsync(nameof(BrownianViewModel));
     }
 }
