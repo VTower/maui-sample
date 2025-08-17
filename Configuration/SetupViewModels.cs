@@ -6,5 +6,6 @@ namespace maui_sample.Configuration;
 public static class SetupViewModels
 {
     public static IServiceCollection AddViewModels(this IServiceCollection services)
-        => services.AddTransient<MainViewModel>();
+        => services.AddTransient<MainViewModel>()
+                   .AddTransient<BrownianViewModel>();
 }
