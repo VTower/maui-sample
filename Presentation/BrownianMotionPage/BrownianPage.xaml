@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="maui_sample.BrownianPage">
+       <ContentPage.Resources>
+              <ResourceDictionary>
+                     <Style TargetType="Button"
+                            x:Key="ButtonStyle">
+                            <Setter Property="BackgroundColor"
+                                    Value="#04172f"/>
+                            <Setter Property="TextColor"
+                                    Value="#f5f6f7"/>
+                            <Setter Property="Padding"
+                                    Value="12,10"/>
+                            <Setter Property="ContentLayout"
+                                    Value="Left,8"/>
+                            <Setter Property="VisualStateManager.VisualStateGroups">
+                                   <VisualStateGroupList>
+                                          <VisualStateGroup x:Name="CommonStates">
+                                                 <VisualState x:Name="Normal"/>
+                                                 <VisualState x:Name="PointerOver">
+                                                        <VisualState.Setters>
+                                                               <Setter Property="BackgroundColor"
+                                                                       Value="#0A264A"/>
+                                                               <Setter Property="Scale"
+                                                                       Value="1.02"/>
+                                                        </VisualState.Setters>
+                                                 </VisualState>
+                                                 <VisualState x:Name="Pressed">
+                                                        <VisualState.Setters>
+                                                               <Setter Property="BackgroundColor"
+                                                                       Value="#031127"/>
+                                                               <Setter Property="Scale"
+                                                                       Value="0.98"/>
+                                                        </VisualState.Setters>
+                                                 </VisualState>
+                                                 <VisualState x:Name="Disabled">
+                                                        <VisualState.Setters>
+                                                               <Setter Property="BackgroundColor"
+                                                                       Value="#2A2A2A"/>
+                                                               <Setter Property="TextColor"
+                                                                       Value="#888"/>
+                                                               <Setter Property="Opacity"
+                                                                       Value="0.6"/>
+                                                        </VisualState.Setters>
+                                                 </VisualState>
+                                          </VisualStateGroup>
+                                   </VisualStateGroupList>
+                            </Setter>
+                     </Style>
+              </ResourceDictionary>
+       </ContentPage.Resources>
+       <Grid RowSpacing="0">
+              <Grid.RowDefinitions>
+                     <RowDefinition Height="Auto"/>
+                     <RowDefinition Height="4*"/>
+              </Grid.RowDefinitions>
+              <!-- === HEADER === -->
+              <Grid Grid.Row="0"
+                    BackgroundColor="#0C1D36"
+                    VerticalOptions="Fill"
+                    Padding="20"
+                    ColumnSpacing="16">
+                     <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                     </Grid.ColumnDefinitions>
+                     <Image Grid.Column="0"
+                            Source="header_icon.png"
+                            WidthRequest="40"
+                            HeightRequest="40"
+                            VerticalOptions="Center"/>
+                     <VerticalStackLayout Grid.Column="1"
+                                          VerticalOptions="Center">
+                            <Label Text="BTG Pactual"
+                                   FontSize="22"
+                                   FontAttributes="Bold"
+                                   TextColor="White"/>
+                            <Label Text="Simulação de Brownian"
+                                   FontSize="14"
+                                   TextColor="#EBFFFFFF"/>
+                     </VerticalStackLayout>
+              </Grid>
+              <!-- CONTEUDO BROWNIAN -->
+              <ScrollView Grid.Row="1">
+                     <Grid>
+                            <Grid.RowDefinitions>
+                                   <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                   <ColumnDefinition Width="6*"/>
+                                   <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <!-- Gráfico -->
+                            <Border Grid.Column="0"
+                                    Stroke="Black"
+                                    StrokeShape="RoundRectangle 8"
+                                    Padding="8"
+                                    Margin="12,12,0,12">
+                                   <GraphicsView
+                                          x:Name="ChartView"/>
+                            </Border>
+                            <!-- LATERAL DIREITA -->
+                            <Border Stroke="Black"
+                                    Grid.Column="1"
+                                    StrokeShape="RoundRectangle 8"
+                                    VerticalOptions="Fill"
+                                    HorizontalOptions="Fill"
+                                    Padding="8"
+                                    Margin="12">
+                                   <!-- CONTEXTO DA DIREITINHA -->
+                                   <Grid HorizontalOptions="Fill"
+                                         VerticalOptions="Fill">
+                                          <Grid.RowDefinitions>
+                                                 <!-- Preço inicial -->
+                                                 <RowDefinition Height="*"/>
+                                                 <!-- Volatilidade -->
+                                                 <RowDefinition Height="*"/>
+                                                 <!-- Média -->
+                                                 <RowDefinition Height="*"/>
+                                                 <!-- Tempo -->
+                                                 <RowDefinition Height="*"/>
+                                                 <!-- ADD SIMULAÇÃO -->
+                                                 <!-- RM SIMULAÇÃO -->
+                                                 <!-- CLEAN SIMULAÇÃO -->
+                                                 <RowDefinition Height="3*"/>
+                                          </Grid.RowDefinitions>
+                                          <!-- Preço inicial -->
+                                          <VerticalStackLayout Grid.Row="0"
+                                                               MaximumHeightRequest="58"
+                                                               VerticalOptions="Center">
+                                                 <Label Text="Preço inicial:"
+                                                        HorizontalOptions="Start"
+                                                        VerticalOptions="Center"/>
+                                                 <Entry Text="{Binding InitialPrice}"
+                                                        Margin="0,6,0,10"
+                                                        HorizontalOptions="Fill"
+                                                        HorizontalTextAlignment="Center"
+                                                        VerticalOptions="Center"
+                                                        HeightRequest="40"/>
+                                          </VerticalStackLayout>
+                                          <!-- Volatilidade -->
+                                          <VerticalStackLayout Grid.Row="1"
+                                                               MaximumHeightRequest="58"
+                                                               VerticalOptions="Center">
+                                                 <Label Text="Volatilidade (σ):"
+                                                        HorizontalOptions="Start"
+                                                        VerticalOptions="Center"/>
+                                                 <Entry Text="{Binding Sigma}"
+                                                        Margin="0,6,0,10"
+                                                        HorizontalOptions="Fill"
+                                                        HorizontalTextAlignment="Center"
+                                                        VerticalOptions="Center"
+                                                        HeightRequest="40"/>
+                                          </VerticalStackLayout>
+                                          <!-- Média -->
+                                          <VerticalStackLayout Grid.Row="2"
+                                                               MaximumHeightRequest="58"
+                                                               VerticalOptions="Center">
+                                                 <Label Text="Média (μ):"
+                                                        HorizontalOptions="Start"
+                                                        VerticalOptions="Center"/>
+                                                 <Entry Text="{Binding Mean}"
+                                                        Margin="0,6,0,10"
+                                                        HorizontalOptions="Fill"
+                                                        HorizontalTextAlignment="Center"
+                                                        VerticalOptions="Center"
+                                                        HeightRequest="40"/>
+                                          </VerticalStackLayout>
+                                          <!-- Tempo -->
+                                          <VerticalStackLayout Grid.Row="3"
+                                                               MaximumHeightRequest="58"
+                                                               VerticalOptions="Center">
+                                                 <Label Text="Tempo (dias):"
+                                                        HorizontalOptions="Start"
+                                                        VerticalOptions="Center"/>
+                                                 <Entry Text="{Binding NumDays}"
+                                                        Margin="0,6,0,10"
+                                                        HorizontalOptions="Fill"
+                                                        HorizontalTextAlignment="Center"
+                                                        VerticalOptions="Center"
+                                                        HeightRequest="40"/>
+                                          </VerticalStackLayout>
+                                          <!-- BOT CONTEXT -->
+                                          <VerticalStackLayout Grid.Row="4"
+                                                               VerticalOptions="Center"
+                                                               HorizontalOptions="Fill"
+                                                               Spacing="10">
+                                                 <!-- ADD SIMULAÇÃO -->
+                                                 <Button Text="Add Simulação"
+                                                         Command="{Binding AddSimulationCommand}"
+                                                         ImageSource="add_graph_icon.png"
+                                                         HorizontalOptions="Fill"
+                                                         VerticalOptions="Center"
+                                                         Padding="12,10"
+                                                         CornerRadius="8"
+                                                         HeightRequest="64"
+                                                         Style="{StaticResource ButtonStyle}"/>
+                                                 <!-- REMOVER SIMULAÇÃO -->
+                                                 <Button Text="Voltar Última"
+                                                         Command="{Binding RemoveLastCommand}"
+                                                         ImageSource="voltar_icon.png"
+                                                         HorizontalOptions="Fill"
+                                                         VerticalOptions="Center"
+                                                         Padding="12,10"
+                                                         CornerRadius="8"
+                                                         MaximumHeightRequest="34"
+                                                         Style="{StaticResource ButtonStyle}"/>
+                                                 <!-- CLEAN SIMULAÇÃO -->
+                                                 <Button Text="Limpar"
+                                                         Command="{Binding ClearAllCommand}"
+                                                         ImageSource="broom_icon.png"
+                                                         HorizontalOptions="Fill"
+                                                         VerticalOptions="Center"
+                                                         Padding="12,10"
+                                                         CornerRadius="8"
+                                                         MaximumHeightRequest="34"
+                                                         Style="{StaticResource ButtonStyle}"/>
+                                          </VerticalStackLayout>
+                                   </Grid>
+                            </Border>
+                     </Grid>
+              </ScrollView>
+       </Grid>
+</ContentPage>
